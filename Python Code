@@ -1,0 +1,14 @@
+def grille(message, code):
+    if len(message) == 0:
+        return message
+
+    res = []
+    reverse_msg = message[::-1]
+    pierced_sheet = bin(code).split('0b')[1][::-1]
+    
+    for i, number in enumerate(pierced_sheet):
+        if i < len(message):
+            if number == '1':
+                res.insert(0, reverse_msg[i])
+            
+    return ''.join(res)
